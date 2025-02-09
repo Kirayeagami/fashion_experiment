@@ -1,0 +1,186 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Ensure the content stacks vertically */
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    padding-top: 80px; /* Padding to ensure content is not hidden behind the navbar */
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;  /* Fixed position at the top of the page */
+    top: 0;  /* Align at the top */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;  /* Increased padding for better spacing */
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #fff;
+    height: 80px;  /* Set a minimum height for the navbar */
+    z-index: 1000;  /* Ensure it's on top of other elements */
+}
+
+.navbar-heading {
+    font-size: 2.5rem;  /* Increased font size for visibility */
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar-links {
+    display: flex;
+    list-style-type: none;
+    margin-left: auto;  /* Ensure links are aligned to the right */
+}
+
+.navbar-links li {
+    margin: 0 20px;  /* Adjust margin for more spacing between links */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;  /* Increased font size for better readability */
+    transition: color 0.3s ease;
+}
+
+/* Navbar Links Hover */
+.navbar-links a:hover {
+    color: #ff9a9e;
+}
+
+/* Container for the Form */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #ddd;
+}
+
+/* Focus Effect */
+input:focus,
+textarea:focus {
+    background: rgba(255, 255, 255, 0.4);
+    outline: 2px solid #ff9a9e; /* Added outline for focus visibility */
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover */
+button:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    transform: translateY(-3px);
+}
+
+/* Success and Error Messages */
+.success {
+    color: #2ecc71;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-heading {
+        font-size: 2rem; /* Adjusted for smaller screens */
+    }
+
+    .navbar-links {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+
+    .container {
+        padding: 30px;
+        max-width: 90%; /* Allow the container to be more flexible */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Slightly smaller heading on smaller screens */
+    }
+}

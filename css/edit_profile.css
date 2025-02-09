@@ -1,0 +1,127 @@
+/* Basic reset for styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container for the edit profile form */
+.edit-profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Header styling */
+.edit-profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.edit-profile-header h1 {
+    font-size: 2.5em;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+/* Form styling */
+.edit-profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-profile-form label {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.edit-profile-form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+.edit-profile-form input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.edit-profile-form .form-group input {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button styling */
+.edit-profile-form .form-actions {
+    text-align: center;
+}
+
+.edit-profile-form .btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-form .btn:hover {
+    background-color: #0056b3;
+}
+
+.edit-profile-form .cancel-btn {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.edit-profile-form .cancel-btn:hover {
+    background-color: #c82333;
+}
+
+/* Alert messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.alert.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

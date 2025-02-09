@@ -1,0 +1,91 @@
+/* Reset some styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Wrapper for the whole checkout page */
+.checkout-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95);
+    animation: slideIn 0.5s ease-in-out forwards;
+}
+
+/* Animating the container */
+@keyframes slideIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.checkout-total {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.checkout-total p {
+    margin: 0;
+}
+
+/* Button styling */
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #e53e3e;
+}
+
+.checkout-btn:active {
+    transform: scale(0.98);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #ff6347;
+}
+
+.footer a:hover {
+    color: #e53e3e;
+}

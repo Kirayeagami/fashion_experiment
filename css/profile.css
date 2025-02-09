@@ -1,0 +1,140 @@
+/* Profile Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    width: 80%;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.profile-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.profile-details {
+    margin-bottom: 30px;
+}
+
+.detail {
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Seller Dashboard Styling */
+.seller-dashboard {
+    margin-top: 40px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+}
+
+.seller-dashboard h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.seller-dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.seller-dashboard li {
+    margin: 10px 0;
+}
+
+.seller-dashboard .btn {
+    background-color: #28a745;
+}
+
+.seller-dashboard .btn:hover {
+    background-color: #218838;
+}
+
+/* Seller Dashboard Links */
+.seller-dashboard ul li a {
+    display: block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.seller-dashboard ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

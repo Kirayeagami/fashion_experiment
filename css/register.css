@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to left, #FC5C7D, #6A82FB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* Container for the form */
+.container {
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Form Heading */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* User Input Button */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Input Fields */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus effect for inputs */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #3498db;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover and active effect for the button */
+button[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Link styling */
+p {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Animation for form and text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px;
+        width: 80%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
