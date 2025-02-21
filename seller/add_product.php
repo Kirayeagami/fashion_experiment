@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST["product_name"]);
     $price = $_POST["price"];
     $desc = htmlspecialchars($_POST["description"]);
+    $stock = $_POST["stock"]; // Get stock quantity from form
     $seller_id = $_SESSION["user_id"];
 
     // Check if seller exists in the sellers table
@@ -54,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert product into database
-    $stmt = $conn->prepare("INSERT INTO products (seller_id, name, price, description, image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("isdss", $seller_id, $name, $price, $desc, $new_filename);
+    $stmt = $conn->prepare("INSERT INTO products (seller_id, name, price, description, image, stock) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("isdssi", $seller_id, $name, $price, $desc, $new_filename, $stock);
 
     if ($stmt->execute()) {
         echo "<p class='success'>Product added successfully!</p>";
@@ -105,6 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="seller-form-group">
                 <textarea id="description" name="description" required placeholder=" "></textarea>
                 <label for="description">Description</label>
+            </div>
+            
+            <div class="seller-form-group">
+                <input type="number" id="stock" name="stock" required placeholder=" ">
+                <label for="stock">Stock Quantity</label>
             </div>
             
             <div class="seller-form-group">

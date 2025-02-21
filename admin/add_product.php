@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
     $description = $_POST['description'];
     $category = $_POST['category'];
+    $stock = $_POST['stock']; // Get stock quantity from form
     $seller_id = 1; // Default admin seller ID
 
     // Handle image upload
@@ -26,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
             // Insert product into database
-            $stmt = $conn->prepare("INSERT INTO products (name, price, description, image, category, seller_id) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sdsssi", $name, $price, $description, $image_name, $category, $seller_id);
+            $stmt = $conn->prepare("INSERT INTO products (name, price, description, image, category, seller_id, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sdssssi", $name, $price, $description, $image_name, $category, $seller_id, $stock);
             
             if ($stmt->execute()) {
                 $message = "Product added successfully!";
@@ -84,6 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <input type="number" id="price" name="price" step="0.01" required placeholder=" ">
                 <label for="price">Price</label>
+            </div>
+            
+            <div class="form-group">
+                <input type="number" id="stock" name="stock" required placeholder=" ">
+                <label for="stock">Stock Quantity</label>
             </div>
             
             <div class="form-group">

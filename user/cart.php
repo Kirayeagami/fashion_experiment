@@ -51,9 +51,9 @@ class Cart {
         if (isset($this->items[$product_id])) {
             $this->items[$product_id]['quantity'] = $quantity;
             $this->save();
-            error_log("Successfully updated product $product_id to quantity $quantity");
+            return true; // Indicates success
         } else {
-            error_log("Failed to update product $product_id: Product not found in cart");
+            return false; // Indicates failure (product not found)
         }
     }
 
@@ -62,9 +62,9 @@ class Cart {
         if (isset($this->items[$product_id])) {
             unset($this->items[$product_id]);
             $this->save();
-            error_log("Successfully removed product $product_id from cart");
+            return true; // Indicates success
         } else {
-            error_log("Failed to remove product $product_id: Product not found in cart");
+            return false; // Indicates failure (product not found)
         }
     }
 
@@ -88,20 +88,32 @@ class Cart {
 // Initialize cart
 $cart = new Cart();
 
-// Handle cart actions
+$updateMessage = '';
+$removeMessage = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        if (isset($_POST['remove'])) {
-            $cart->removeItem($_POST['remove']);
-        } elseif (isset($_POST['update'])) {
-            $product_id = intval($_POST['product_id']);
-            $quantity = intval($_POST['quantity']);
-            error_log("Attempting to update product $product_id to quantity $quantity");
-            $cart->updateItem($product_id, $quantity);
+    error_log("POST data: " . print_r($_POST, true)); // Log incoming POST data
+    error_log("Current cart items before action: " . print_r($cart->getItems(), true)); // Log current cart items
+
+    if (isset($_POST['remove'])) {
+        $product_id = $_POST['remove'];
+        if ($cart->removeItem($product_id)) {
+            $removeMessage = "Product removed successfully!";
+        } else {
+            $removeMessage = "Failed to remove product: Product not found in cart.";
         }
-    } catch (Exception $e) {
-        error_log("Cart error: " . $e->getMessage());
+    } elseif (isset($_POST['update'])) {
+        $product_id = $_POST['product_id'];
+        $quantity = $_POST['quantity'];
+        if ($cart->updateItem($product_id, $quantity)) {
+            $updateMessage = "Product updated successfully!";
+        } else {
+            $updateMessage = "Failed to update product: Product not found in cart.";
+        }
     }
+
+    error_log("Current cart items after action: " . print_r($cart->getItems(), true)); // Log current cart items after action
+
 }
 ?>
 <!DOCTYPE html>
@@ -114,6 +126,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h2>Your Cart</h2>
+
+    <?php if ($updateMessage): ?>
+        <div class="message"><?php echo htmlspecialchars($updateMessage); ?></div>
+    <?php endif; ?>
+
+    <?php if ($removeMessage): ?>
+        <div class="message"><?php echo htmlspecialchars($removeMessage); ?></div>
+    <?php endif; ?>
 
     <?php $items = $cart->getItems(); ?>
     <?php if (!empty($items)): ?>
@@ -130,7 +150,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tbody>
                 <?php foreach ($items as $item): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($item['name']); ?></td>
+                        <td>
+                            <img src="../assets/images/<?php echo $item['product_id']; ?>.jpg" alt="<?php echo htmlspecialchars($item['name']); ?>" class="image">
+                            <?php echo htmlspecialchars($item['name']); ?>
+                        </td>
+
                         <td>
                             <form action="" method="post" class="update-form">
                                 <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
@@ -151,8 +175,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tbody>
         </table>
 
-        <div class="total">
-            <p><strong>Total:</strong> $<?php echo number_format($cart->getTotal(), 2); ?></p>
+        <div class="total" style="display: flex; align-items: center;">
+            <p style="margin-right: auto;"><strong>Total:</strong> $<?php echo number_format($cart->getTotal(), 2); ?></p>
             <a href="checkout.php" class="checkout-btn">Proceed to Checkout</a>
         </div>
     <?php else: ?>
