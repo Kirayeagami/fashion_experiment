@@ -127,5 +127,4 @@ The K I R A project is a comprehensive e-commerce solution that combines various
         cardholderName VARCHAR(255) NOT NULL,
         expiryDate VARCHAR(7) NOT NULL, -- Format: MM/YYYY
         cvv VARCHAR(3) NOT NULL
-        );"# My-Project" 
-"# fashion_experiment" 
+        );
