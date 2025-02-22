@@ -1,0 +1,255 @@
+/* Header with Auto-Hide and Animations */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Header Styles with Auto-Hide */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+
+
+header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+header:hover {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #2c3e50;
+    text-decoration: none;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    color: #3498db;
+    transform: scale(1.02);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    order: 2;
+    margin-top: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.user-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.user-links a {
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.user-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.user-links a:hover::after {
+    width: 100%;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+
+.search-box input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.search-box button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.search-box button:hover {
+    color: #3498db;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 760px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        margin-left: 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .user-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+/* Dark Mode */
+.dark-mode header {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .logo,
+.dark-mode .nav-links a,
+.dark-mode .user-links a {
+    color: #ecf0f1;
+}
+
+.dark-mode .nav-links a:hover,
+.dark-mode .user-links a:hover {
+    color: #3498db;
+}
+
+.dark-mode .search-box input[type="text"] {
+    background-color: #34495e;
+    border-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.dark-mode .search-box button {
+    color: #ecf0f1;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,77 @@
+/* Accessibility Improvements */
+
+/* Skip Navigation Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus Styles */
+:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* ARIA Roles */
+[role="navigation"] {
+    position: relative;
+}
+
+[role="main"] {
+    padding-top: 20px;
+}
+
+/* Contrast Improvements */
+a {
+    color: #1a73e8;
+}
+
+a:hover {
+    color: #1557b7;
+}
+
+/* Form Accessibility */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    min-height: 44px;
+}
+
+/* Image Replacement */
+.ir {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Responsive Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
