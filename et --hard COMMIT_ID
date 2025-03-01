@@ -1,0 +1,20 @@
+[33m6f9c1a3[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{0}: pull --rebase origin main (pick): it is 1st push
+[33m3cdd966[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: pull --rebase origin main (start): checkout 3cdd9667a5c7702e6232042fba17a4f773c48bf4
+[33m95b9dae[m[33m ([m[1;32mmain[m[33m)[m HEAD@{2}: rebase (finish): returning to refs/heads/main
+[33m95b9dae[m[33m ([m[1;32mmain[m[33m)[m HEAD@{3}: commit: new updates
+[33mc9bd18f[m HEAD@{4}: rebase (continue): first commit
+[33m1e24dbc[m HEAD@{5}: rebase (continue): Initial commit
+[33m12247f6[m HEAD@{6}: commit: Updated files and added new features
+[33m4d44b45[m HEAD@{7}: rebase (pick): it is 1st push
+[33m299d585[m HEAD@{8}: pull origin main --rebase (start): checkout 299d58521d1cbf16ddebe2d8c2a86b1ab0c22e50
+[33mad366bc[m HEAD@{9}: Branch: renamed refs/heads/main to refs/heads/main
+[33mad366bc[m HEAD@{11}: Branch: renamed refs/heads/main to refs/heads/main
+[33mad366bc[m HEAD@{13}: Branch: renamed refs/heads/main to refs/heads/main
+[33mad366bc[m HEAD@{15}: commit: first commit
+[33md788ddc[m HEAD@{16}: Branch: renamed refs/heads/main to refs/heads/main
+[33md788ddc[m HEAD@{18}: Branch: renamed refs/heads/main to refs/heads/main
+[33md788ddc[m HEAD@{20}: commit: first commit
+[33mf487601[m HEAD@{21}: commit: Initial commit
+[33m02c7c89[m HEAD@{22}: commit: it is 1st push
+[33maa97751[m HEAD@{23}: Branch: renamed refs/heads/master to refs/heads/main
+[33maa97751[m HEAD@{25}: commit (initial): first commit
