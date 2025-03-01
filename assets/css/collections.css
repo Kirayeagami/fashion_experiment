@@ -1,3 +1,56 @@
+/* Base styles for light mode */
+
+.collections-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Start hidden for fade-in */
+    animation: fadeIn 0.5s forwards; /* Fade-in animation */
+}
+
+.product-card:hover {
+    transform: translateY(-5px) scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px; /* Smaller image size */
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease; /* Add transition for zoom effect */
+}
+
+.product-card img:hover {
+    transform: scale(1.1); /* Zoom effect on image hover */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
 /* Base styles */
 .collections-container {
     max-width: 1200px;
@@ -143,4 +196,26 @@
     .filters-form {
         flex-direction: column;
     }
+}
+
+/* Dark mode styles */
+.dark-mode .product-card {
+    background: #333;
+    color: #fff;
+}
+
+.dark-mode .product-card h3,
+.dark-mode .product-card p {
+    color: #fff;
+}
+
+.dark-mode .filters-form select,
+.dark-mode .filters-form button {
+    background: #444;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+.dark-mode .no-products {
+    color: #ccc;
 }

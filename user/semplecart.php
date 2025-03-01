@@ -9,9 +9,11 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 class Cart {
-    private $items = [];
+    private $conn; // Database connection
+    private $items = []; // Cart items
 
-    public function __construct() {
+    public function __construct($dbConnection) {
+        $this->conn = $dbConnection; // Assign the database connection
         if (isset($_SESSION['cart'])) {
             $this->items = $_SESSION['cart'];
         }
@@ -40,6 +42,9 @@ class Cart {
     }
 
     public function updateItem($product_id, $quantity) {
+        // Update the quantity in the database
+        $stmt = $this->conn->prepare("UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?");
+
         $product_id = intval($product_id);
         $quantity = intval($quantity);
 
@@ -58,8 +63,16 @@ class Cart {
     }
 
     public function removeItem($product_id) {
+        // Remove the item from the database
+        $stmt = $this->conn->prepare("DELETE FROM cart WHERE user_id = ? AND product_id = ?");
+
         $product_id = intval($product_id);
         if (isset($this->items[$product_id])) {
+            // Remove the item from the database
+            $user_id = $_SESSION['user_id']; // Assuming user_id is stored in session
+            $stmt->bind_param("ii", $user_id, $product_id);
+            $stmt->execute();
+
             unset($this->items[$product_id]);
             $this->save();
             error_log("Successfully removed product $product_id from cart");
@@ -86,7 +99,7 @@ class Cart {
 }
 
 // Initialize cart
-$cart = new Cart();
+$cart = new Cart($conn);
 
 // Handle cart actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

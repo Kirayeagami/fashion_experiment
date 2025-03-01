@@ -128,3 +128,6 @@ The K I R A project is a comprehensive e-commerce solution that combines various
         expiryDate VARCHAR(7) NOT NULL, -- Format: MM/YYYY
         cvv VARCHAR(3) NOT NULL
         );
+
+        
+"# fashion_experiment" 

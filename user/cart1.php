@@ -9,15 +9,11 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 class Cart {
-    private $conn; // Database connection
-    private $items = []; // Cart items
+    private $items = [];
 
-    public function __construct($dbConnection) {
-        $this->conn = $dbConnection; // Assign the database connection
+    public function __construct() {
         if (isset($_SESSION['cart'])) {
             $this->items = $_SESSION['cart'];
-        } else {
-            $_SESSION['cart'] = [];
         }
     }
 
@@ -46,7 +42,6 @@ class Cart {
     public function updateItem($product_id, $quantity) {
         $product_id = intval($product_id);
         $quantity = intval($quantity);
-        $user_id = $_SESSION['user_id'];
 
         if ($quantity <= 0) {
             $this->removeItem($product_id);
@@ -56,55 +51,20 @@ class Cart {
         if (isset($this->items[$product_id])) {
             $this->items[$product_id]['quantity'] = $quantity;
             $this->save();
-
-            $stmt = $this->conn->prepare("UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?");
-            $stmt->bind_param("iii", $quantity, $user_id, $product_id);
-            
-            error_log("Attempting to update product $product_id to quantity $quantity");
-            if ($stmt->execute()) {
-                error_log("Successfully updated product $product_id to quantity $quantity in database.");
-                error_log("Current cart items: " . print_r($this->items, true));
-            } else {
-                error_log("Failed to update product $product_id in database: " . $stmt->error);
-            }
+            return true; // Indicates success
         } else {
-            error_log("Failed to update product $product_id: Product not found in cart");
+            return false; // Indicates failure (product not found)
         }
     }
 
     public function removeItem($product_id) {
-        error_log("Attempting to remove product with ID: $product_id");
-
         $product_id = intval($product_id);
-        $user_id = $_SESSION['user_id'];
-
         if (isset($this->items[$product_id])) {
-            $stmt = $this->conn->prepare("DELETE FROM cart WHERE user_id = ? AND product_id = ?");
-            $stmt->bind_param("ii", $user_id, $product_id);
-            
-            if ($stmt->execute()) {
-                unset($this->items[$product_id]);
-                $this->save();
-                error_log("Successfully removed product $product_id from cart in database.");
-                error_log("Current cart items: " . print_r($this->items, true));
-            } else {
-                error_log("Failed to remove product $product_id from database: " . $stmt->error);
-            }
-        } else {
-            error_log("Failed to remove product $product_id: Product not found in cart");
-        }
-    }
-
-    public function clearCart() {
-        $user_id = $_SESSION['user_id'];
-        $stmt = $this->conn->prepare("DELETE FROM cart WHERE user_id = ?");
-        $stmt->bind_param("i", $user_id);
-        if ($stmt->execute()) {
-            $this->items = [];
+            unset($this->items[$product_id]);
             $this->save();
-            error_log("Successfully cleared all items from the cart.");
+            return true; // Indicates success
         } else {
-            error_log("Failed to clear cart: " . $stmt->error);
+            return false; // Indicates failure (product not found)
         }
     }
 
@@ -126,33 +86,34 @@ class Cart {
 }
 
 // Initialize cart
-$cart = new Cart($conn);
+$cart = new Cart();
 
-// Handle cart actions
+$updateMessage = '';
+$removeMessage = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    error_log("POST data received: " . print_r($_POST, true)); // Debugging log
+    error_log("POST data: " . print_r($_POST, true)); // Log incoming POST data
+    error_log("Current cart items before action: " . print_r($cart->getItems(), true)); // Log current cart items
 
-    try {
-        if (isset($_POST['remove']) && !empty($_POST['remove'])) {
-            $product_id = intval($_POST['remove']);
-            error_log("Removing product ID: $product_id");
-            if (isset($cart->getItems()[$product_id])) {
-                $cart->removeItem($product_id);
-            } else {
-                error_log("Failed to remove product $product_id: Product not found in cart");
-            }
-        } elseif (isset($_POST['update'])) {
-            $product_id = intval($_POST['product_id']);
-            $quantity = intval($_POST['quantity']);
-            error_log("Updating product ID: $product_id with quantity: $quantity");
-            $cart->updateItem($product_id, $quantity);
-        } elseif (isset($_POST['clear'])) {
-            error_log("Clearing all items from the cart.");
-            $cart->clearCart();
+    if (isset($_POST['remove'])) {
+        $product_id = $_POST['remove'];
+        if ($cart->removeItem($product_id)) {
+            $removeMessage = "Product removed successfully!";
+        } else {
+            $removeMessage = "Failed to remove product: Product not found in cart.";
         }
-    } catch (Exception $e) {
-        error_log("Cart error: " . $e->getMessage());
+    } elseif (isset($_POST['update'])) {
+        $product_id = $_POST['product_id'];
+        $quantity = $_POST['quantity'];
+        if ($cart->updateItem($product_id, $quantity)) {
+            $updateMessage = "Product updated successfully!";
+        } else {
+            $updateMessage = "Failed to update product: Product not found in cart.";
+        }
     }
+
+    error_log("Current cart items after action: " . print_r($cart->getItems(), true)); // Log current cart items after action
+
 }
 ?>
 <!DOCTYPE html>
@@ -166,13 +127,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2>Your Cart</h2>
 
-    <form action="" method="post" class="clear-cart-form">
-        <button type="submit" name="clear" class="clear-cart-btn">Clear All Items</button>
-    </form>
+    <?php if ($updateMessage): ?>
+        <div class="message"><?php echo htmlspecialchars($updateMessage); ?></div>
+    <?php endif; ?>
+
+    <?php if ($removeMessage): ?>
+        <div class="message"><?php echo htmlspecialchars($removeMessage); ?></div>
+    <?php endif; ?>
 
     <?php $items = $cart->getItems(); ?>
-    <?php if (!empty($items)): ?> 
-
+    <?php if (!empty($items)): ?>
         <table>
             <thead>
                 <tr>
@@ -186,7 +150,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tbody>
                 <?php foreach ($items as $item): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($item['name']); ?></td>
+                        <td>
+                            <img src="../assets/images/<?php echo $item['product_id']; ?>.jpg" alt="<?php echo htmlspecialchars($item['name']); ?>" class="image">
+                            <?php echo htmlspecialchars($item['name']); ?>
+                        </td>
+
                         <td>
                             <form action="" method="post" class="update-form">
                                 <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
@@ -207,8 +175,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tbody>
         </table>
 
-        <div class="total">
-            <p><strong>Total:</strong> $<?php echo number_format($cart->getTotal(), 2); ?></p>
+        <div class="total" style="display: flex; align-items: center;">
+            <p style="margin-right: auto;"><strong>Total:</strong> $<?php echo number_format($cart->getTotal(), 2); ?></p>
             <a href="checkout.php" class="checkout-btn">Proceed to Checkout</a>
         </div>
     <?php else: ?>
