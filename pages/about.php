@@ -1,4 +1,4 @@
-<?php
+<a?php
 session_start();
 include __DIR__ . '/../includes/db.php';
 ?>
@@ -12,6 +12,7 @@ include __DIR__ . '/../includes/db.php';
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="shortcut icon" href="https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg" type="image/png" />
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -46,12 +47,14 @@ include __DIR__ . '/../includes/db.php';
             <h2>Meet Our Team</h2>
             <div class="team-grid">
                 <div class="team-member">
+                <a href="rajkumar.html">
                     <img src="../assets/images/rajkumar.jpg" alt="Rajkumar Das">
                     <h4>Rajkumar Das</h4>
                     <p>Creative Director</p>
-                    <p>Head of Design</p>
+                    <p>Head of Design</p></a>
                 </div>
                 <div class="team-member">
+                <a href="sayan.html">
                     <img src="../assets/images/sayan.jpg" alt="Sayan Basani">
                     <h4>Sayan Basani</h4>
                     <p>Co Creater</p>
