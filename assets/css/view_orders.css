@@ -157,8 +157,8 @@ body.dark-mode .orders-table {
 
 body.dark-mode .orders-table th,
 body.dark-mode .orders-table td {
-    color: #e0e0e0;
-    border-color: #555;
+    color: #f78f8f;
+    border-color: #5b0000;
 }
 
 body.dark-mode .orders-table tr:hover {

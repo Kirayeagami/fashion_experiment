@@ -57,15 +57,33 @@ include __DIR__ . '/../includes/db.php';
                 <a href="sayan.html">
                     <img src="../assets/images/sayan.jpg" alt="Sayan Basani">
                     <h4>Sayan Basani</h4>
-                    <p>Co Creater</p>
+                    <p>Co Creater</p></a>
+                </div>
+                <div class="team-member">
+                <a href="">
+                    <img src="../assets/images/arjya.jpg" alt="Arjya Ghoshal">
+                    <h4>Arjya Ghoshal</h4>
+                    <p>Team Member</p></a>
+                </div>
+                <div class="team-member">
+                <a href="">
+                    <img src="../assets/images/ajju.jpg" alt="Subham Patra">
+                    <h4>Subham Patra</h4>
+                    <p>Team Member</p></a>
+                </div>
+                <div class="team-member">
+                <a href="">
+                    <img src="../assets/images/kusum.jpg" alt="Kusum Dey">
+                    <h4>Kusum Dey</h4>
+                    <p>Team Member</p></a>
                 </div>
                 <div class="team-member">
                 <a href="http://localhost/e-comm/index.php">    
                     <img src="../assets/images/brothers.jpg" alt="Brothers">
-
                     <h4>My Team</h4>
                     <p>Marketing Managers</p>
                     <p>Supporter</p>
+                </a>
                 </div>
             </div>
         </section>

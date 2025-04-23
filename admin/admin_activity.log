@@ -62,3 +62,10 @@
 [2025-04-22 20:20:01] Admin ID: 1 | Activity: Login | Description: Successful login
 [2025-04-23 06:17:33] Admin ID: 1 | Activity: Login | Description: Successful login
 [2025-04-23 10:10:55] Admin ID: 1 | Activity: Login | Description: Successful login
+[2025-04-23 10:21:50] Admin ID: 1 | Activity: Login | Description: Successful login
+[2025-04-23 10:23:02] Admin ID: 1 | Activity: Admin Created | Description: Created new admin: rajkumar
+[2025-04-23 10:23:07] Admin ID: 1 | Activity: Logout | Description: Admin logged out
+[2025-04-23 10:23:13] Admin ID: 2 | Activity: Login | Description: Successful login
+[2025-04-23 10:23:30] Admin ID: 0 | Activity: Logout | Description: Admin logged out
+[2025-04-23 10:23:36] Admin ID: 1 | Activity: Login | Description: Successful login
+[2025-04-23 11:46:15] Admin ID: 1 | Activity: Login | Description: Successful login

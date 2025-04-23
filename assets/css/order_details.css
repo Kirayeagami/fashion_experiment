@@ -14,7 +14,7 @@
 }
 
 .order-info {
-    background: #fff;
+    background: #ffbcbc;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -25,17 +25,18 @@
 .order-info p {
     margin: 15px 0;
     font-size: 1.1em;
-    color: #495057;
+    color: #005cb9;
 }
 
 .order-info strong {
-    color: #2c3e50;
+    color: #0e2337;
     min-width: 120px;
     display: inline-block;
 }
 
+
 .ordered-products {
-    background: #fff;
+    background: #e81d1d;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -61,11 +62,17 @@ th, td {
 }
 
 th {
-    background-color: #f8f9fa;
-    color: #495057;
+    background-color: #92b7dd;
+    color: #0c86ff;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9em;
+}
+
+.product-info {
+    color: #01203f;
+    margin-bottom: 25px;
+    font-size: 1.8em;
 }
 
 tr {
@@ -77,6 +84,7 @@ tr:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
 
 .product-image {
     width: 80px;
@@ -146,6 +154,25 @@ tr:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
 }
+
+
+.btn-primary{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+
 
 /* Dark Mode Styles */
 body.dark-mode {
@@ -219,7 +246,7 @@ body.bright-mode .order-info strong,
 body.bright-mode .ordered-products h3,
 body.bright-mode th,
 body.bright-mode td {
-    color: #e7eaed;
+    color: #043e79;
     border-color: #eee;
 }
 
@@ -231,7 +258,7 @@ body.bright-mode tr:hover {
 
 body.bright-mode .action-btn,
 body.bright-mode .print-btn {
-    background-color: #3498db;
+    background-color: #1f94e2;
     color: #fff;
 }
 

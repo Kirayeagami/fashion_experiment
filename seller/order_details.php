@@ -127,7 +127,7 @@ $customer = $customer_result->fetch_assoc();
         </div>
 
         <div class="order-actions">
-            <button class="btn btn-primary" onclick="window.history.back()">
+            <button class="btn-primary" onclick="window.history.back()">
                 <i class="fas fa-arrow-left"></i> Back to Orders
             </button>
         </div>
