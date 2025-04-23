@@ -8,6 +8,7 @@ include __DIR__ . '/../includes/db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K I R A - Fashion</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg" type="image/png" />
     <link rel="stylesheet" href="../assets/css/index.css">
     <script src="../assets/js/script.js" defer></script>
 </head>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajkumar Das</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: -1;
+        }
+        body {
+            background: #000;
+            color: #fff;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        #preloader .loader {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 10px solid #00ffcc;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #ff0095, #00ccff);
+            padding: 20px;
+        }
+        button:hover {
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.5);
+        }
+        .hero {
+            height: 100vh;
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 span {
+            border-right: 3px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40) infinite, blink 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0 }
+            100% { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .section {
+            padding: 100px 10%;
+        }
+
+        .profile-pic {
+            background-image: url('https://i.ibb.co/WvdZfr4G/IMG20250127171054.jpg');
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 30px #00ffcc;
+            animation: glow 2s infinite alternate;
+            animation: float 2s infinite ;
+        }
+
+        /* .profile-pic {
+            background-image: url('https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg');
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            box-shadow: 0 0 30px #00ffcc;
+        } */
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px #00ffcc;
+            }
+            100% {
+                box-shadow: 0 0 40px #00ffcc;
+            }
+        }
+
+        
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.about img:hover {
+    transform: scale(1.1);
+}
+
+
+        
+/* block-$ */
+.block-effect {
+  font-size: calc(8px + 6vw);
+}
+
+.block-reveal {
+  --t: calc(var(--td) + var(--d));
+
+  color: transparent;
+  padding: 4px;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: revealBlock 0s var(--t) forwards;
+}
+
+.block-reveal::after {
+  content: "";
+
+  width: 0%;
+  height: 100%;
+  padding-bottom: 4px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: var(--bc);
+  animation: revealingIn var(--td) var(--d) forwards,
+    revealingOut var(--td) var(--t) forwards;
+}
+
+/* animations */
+
+@keyframes revealBlock {
+  100% {
+    color: #f8f1f1;
+  }
+}
+
+@keyframes revealingIn {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes revealingOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+@keyframes loopText {
+            0%, 45% { opacity: 1; }
+            45.1%, 100% { opacity: 0; }
+        }
+
+        .text1 {
+            animation: loopText 2s infinite;
+        }
+        
+        .text2 {
+            animation: loopText 2s infinite;
+            animation-delay: 2s;
+        }
+
+
+
+        .skills-bar {
+            background: #111;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skills-bar .progress {
+            height: 100%;
+            background: #00ffcc;
+            width: 0;
+            animation: load 3s ease-in-out forwards infinite;
+        }
+
+        @keyframes load {
+            100% { width: var(--progress-width); }
+        }
+
+
+        
+        .section {
+            padding: 100px 10%;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 255, 204, 0.5);
+        }
+
+        
+        
+        
+/* Education Section */
+.education {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.education-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.education ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/* Experience */
+.experience {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.experience-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+/* Contact Form Styles */
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            background: #111;
+            color: #fff;
+        }
+
+        form button {
+            background: #00ffcc;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        #dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00ffcc;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: linear-gradient(90deg, #ff0095, #00ccff);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #download-cv, #email-btn, #call-btn, #proposal-btn, #pay-btn, #whatsapp-btn {
+            padding: 15px 30px;
+            background-color: #00ffcc;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        #voice-input {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff0095;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+
+        .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide from Left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide from Right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s ease;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Bounce Effect */
+.reveal-bounce {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+}
+
+.reveal-bounce.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+
+/* Cube Animation */
+
+@keyframes animate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+.container {
+  position: center;
+  top: -80px;
+  transform: skewY(-20deg);
+  animation: animate 5s linear infinite;
+}
+.container .cube {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.container .cube:nth-child(2) {
+  z-index: 1;
+  translate: -60px -60px;
+}
+.container .cube:nth-child(3) {
+  z-index: 3;
+  translate: 60px 60px;
+}
+.container .cube div {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  translate: calc(-70px * var(--x)) calc(-60px * var(--y));
+}
+.container .cube div span {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #dcdcdc;
+  z-index: calc(1 * var(--i));
+  transition: 1.5s;
+}
+.container .cube div span:hover {
+  transition: 0s;
+  background: #ef4149;
+  filter: drop-shadow(0 0 30px #ef4149);
+}
+.container .cube div span:hover:before, .container .cube div span:hover:after {
+  transition: 0s;
+  background: #ef4149;
+}
+.container .cube div span:before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: #fff;
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 1.5s;
+}
+.container .cube div span:after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  background: #f2f2f2;
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 1.5s;
+}
+
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<header>
+    <h1>Welcome to My Modern Portfolio</h1>
+</header>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    
+    <section class="hero">
+        <h1>Hi, I'm <span>Rajkumar Das</span></h1>
+    </section>
+    
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="profile-pic"></div>
+            <div class="info-box">
+                <div class="text"><br>
+                    <h1>Hi, I'm <span class="text"></span></h1>
+                    <span>
+                        <h1 class="block-effect" style="--td: 1.2s">
+                            <div class="block-reveal" style="--bc: #4040bf; --d: .1s">Rajkumar Das</div>
+                            <div class="block-reveal" style="--bc: #bf4060; --d: .5s;font-size: calc(6px + 2vw);">A passionate web developer & designer with a creative mind.</div>
+                        </h1>
+                    </span>
+                </div>
+                <div class="btn-group">
+                <button href="Rajkumar Das 2.pdf" download class="btn" id="download-cv">Download CV</button>
+                <button id="email-btn">Send Email</button>
+                <br><br>
+                </div>
+                <div class="social">
+                    <i class="fa-brands fa-github"><a href="https://github.com/Kirayeagami" target="_blank" rel="noopener">Github</a></i><br>
+                    <i class="fa-brands fa-linkedin"><a href="https://linkedin.com/in/rajkumar-das-7391a7313" target="_blank" rel="noopener">LinkedIn</a></i><br>
+                    <i class="fa-brands fa-twitter"><a href="https://www.twitter.com/@KiraYeagami" target="_blank" rel="noopener">Twitter</a></i><br>
+                    <i class="fa-brands fa-instagram"><a href="https://www.instagram.com/kira_yeagami?igsh=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener">Instagram</a></i><br>
+                </div>
+            </div>
+        </div> 
+    </section>
+    
+    <section id="projects" class="section">
+        <section id="projects" class="section reveal-left">
+        <h2>Projects</h2>
+        <div class="card"><a href="https://github.com/Kirayeagami/fashion_experiment" target="_blank" rel="noopener">Fashion E-commerce</a></div>
+        <div class="card">Music Streaming App</div>
+        <div class="card"><a href="https://github.com/Kirayeagami/e-commerce" target="_blank" rel="noopener">E-commerce Platform</a></div>
+    </section>
+
+        <section id="skills" class="section">
+            <section id="skills" class="section reveal-bounce">
+            <div class="skills-container">
+                <h2>Skills</h2>
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <div class="skills-bar"><div class="progress" style="--progress-width: 90%;"></div></div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <div class="skills-bar"><div class="progress" style="--progress-width: 85%;"></div></div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <div class="skills-bar"><div class="progress" style="--progress-width: 80%;"></div></div>
+                <div class="skill">
+                    <h3>React</h3>
+                    <div class="skills-bar"><div class="progress" style="--progress-width: 20%;"></div></div>
+                <div class="skill">
+                    <h3>Node.js</h3>
+                    <div class="skills-bar"><div class="progress" style="--progress-width: 10%;"></div></div>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+    <section id="education" class="section">
+        <section id="education" class="section reveal-right">
+        <h2>Education</h2>
+        <ul>
+            <li>Diploma in Computer Application - 82%</li>
+            <li>Diploma of Technology (CST) - Appearing</li>
+        </ul>
+    </section>
+    
+    <section id="experience" class="section">
+        <section id="experience" class="section reveal-right">
+        <h2>Experience</h2>
+        <ul>
+            <li>Intern at Postulate Info Tech Pvt. Ltd</li>
+            <li>Full Stack Web Developer - Freelance</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <section id="contact" class="section reveal">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button>Send Message</button>
+        </form>
+    </section>
+
+    <section class="hero">
+        <!-- <div class="profile-pic"></div> -->
+        <!-- <button id="download-cv">Download CV</button> -->
+        <!-- <button id="email-btn">Send Email</button> -->
+        <button id="call-btn">📞 Call Me Now</button>
+        <button id="proposal-btn">📜 Generate Proposal</button>
+        <button id="pay-btn">💸 Pay Now</button>
+        <button id="whatsapp-btn">💬 Chat on WhatsApp</button>
+    <div id="chat-container" onclick="openChatGPT()">💬 Chat with AI</div>
+    </section>
+
+<!-- <footer>
+    <p>&copy; 2025 Rajkumar Das</p>
+    <a href="https://github.com/Kirayeagami">Github</a>
+    <a href="https://linkedin.com/in/rajkumar-das-7391a7313">LinkedIn</a>
+</footer> -->
+
+<section id="container" class="section">
+    <section id="container" class="section reveal">
+    <div class="container">
+        <div class="cube">
+            <div style="--x:-1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:0; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+        </div>
+        <div class="cube">
+            <div style="--x:-1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:0; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+        </div>
+        <div class="cube">
+            <div style="--x:-1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:0; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+            <div style="--x:1; --y:0;">
+                <span style="--i:3;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:1;"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Particles.js Background
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 100 },
+            size: { value: 3 },
+            color: { value: "#00ffcc" }
+        },
+        interactivity: {
+            events: { onhover: { enable: true, mode: "repulse" } }
+        }
+    });
+
+    // Call Button
+    document.getElementById('call-btn').addEventListener('click', () => {
+        window.location.href = 'tel:+917632032805';
+    });
+
+    // Payment Button
+    document.getElementById('pay-btn').addEventListener('click', () => {
+        window.location.href = 'https://gpay/07632032805raj@okicici';
+    });
+
+    // WhatsApp Chat Button
+    document.getElementById('whatsapp-btn').addEventListener('click', () => {
+        window.location.href = 'https://wa.me/917632032805';
+    });
+
+    // Proposal PDF Generator
+    document.getElementById('proposal-btn').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text('Proposal for Web Development Services', 20, 20);
+        doc.text('Name: Rajkumar Das', 20, 30);
+        doc.text('Service: Full Stack Development', 20, 40);
+        doc.text('Cost: $80 USD', 20, 50);
+        doc.save('Proposal.pdf');
+    });
+
+    // Email Button
+    document.getElementById('email-btn').addEventListener('click', () => {
+        const email = '07632032805raj@gmail.com';
+        const subject = 'New Inquiry';
+        const body = 'Hello Rajkumar, I am interested in your services.';
+        window.open(`mailto:${email}?subject=${subject}&body=${body}`);
+    });
+ 
+    // Preloader
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById('preloader').style.display = 'none';
+        }, 1000);
+    }
+
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+  // Trigger Animation ONLY When Section Comes Into View
+  const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+    // AI ChatGPT Integration
+    function openChatGPT() {
+        window.open('https://chat.openai.com/');
+    }
+
+</script>
+
+</body>
+</html>
