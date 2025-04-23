@@ -32,9 +32,9 @@ if (!$order) {
     exit();
 }
 
-// Fetch order items
+// Fetch order items with product images
 $items_stmt = $conn->prepare("
-    SELECT oi.*, p.name as product_name, p.price as product_price
+    SELECT oi.*, p.name as product_name, p.price as product_price, p.image as image
     FROM order_items oi
     JOIN products p ON oi.product_id = p.id
     WHERE oi.order_id = ?
@@ -52,6 +52,8 @@ $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <title>Order Details</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
     <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/manage_products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -73,6 +75,7 @@ $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             <table>
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Product</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -82,6 +85,13 @@ $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <tbody>
                     <?php foreach ($items as $item): ?>
                         <tr>
+                            <td>
+                                <?php if (!empty($item['product_image'])): ?>
+                                    <img src="../assets/images/<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                                <?php else: ?>
+                                    <div style="width: 60px; height: 60px; background: #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #777;">No Image</div>
+                                <?php endif; ?>
+                            </td>
                             <td><?php echo htmlspecialchars($item['product_name']); ?></td>
                             <td>$<?php echo number_format($item['product_price'], 2); ?></td>
                             <td><?php echo $item['quantity']; ?></td>

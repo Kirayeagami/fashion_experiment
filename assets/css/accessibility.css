@@ -75,3 +75,41 @@ select {
         scroll-behavior: auto !important;
     }
 }
+
+/* Dark Mode Styles */
+body.dark-mode .skip-link {
+    background: #222;
+    color: #eee;
+}
+
+body.dark-mode a {
+    color: #64b5f6;
+}
+
+body.dark-mode a:hover {
+    color: #90caf9;
+}
+
+body.dark-mode :focus {
+    outline: 2px solid #90caf9;
+    outline-offset: 2px;
+}
+
+/* Bright Mode Styles */
+body.bright-mode .skip-link {
+    background: #000;
+    color: white;
+}
+
+body.bright-mode a {
+    color: #1a73e8;
+}
+
+body.bright-mode a:hover {
+    color: #1557b7;
+}
+
+body.bright-mode :focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}

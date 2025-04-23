@@ -28,6 +28,8 @@ $stmt->close();
     <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 <body>
+    <div class="main-content" style="padding-top: 120px;">
+    <?php include __DIR__ . '/../includes/header.php'; ?>
     <div class="profile-container">
         <div class="profile-header">
             <h1>User Profile</h1>
@@ -60,11 +62,44 @@ $stmt->close();
                 <h3>Seller Dashboard</h3>
                 <ul>
                     <li><a href="../seller/seller_dashboard.php" class="btn dashboard-btn">Dashboard</a></li>
-                    <li><a href="../seller/order_details.php" class="btn orders-btn">View Orders</a></li>
+                    <li><a href="../seller/view_orders.php" class="btn orders-btn">View Orders</a></li>
                     <li><a href="../seller/add_product.php" class="btn add-product-btn">Add New Product</a></li>
                 </ul>
             </div>
         <?php endif; ?>
+
+        <?php
+        // Fetch wishlist products for the user
+        $wishlist_stmt = $conn->prepare("
+            SELECT p.id, p.name, p.price, p.image
+            FROM wishlist w
+            JOIN products p ON w.product_id = p.id
+            WHERE w.user_id = ?
+        ");
+        $wishlist_stmt->bind_param("i", $user_id);
+        $wishlist_stmt->execute();
+        $wishlist_items = $wishlist_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        ?>
+
+        <?php if (!empty($wishlist_items)): ?>
+            <div class="wishlist-section">
+                <h3>Your Wishlist</h3>
+                <div class="wishlist-items">
+                    <?php foreach ($wishlist_items as $item): ?>
+                        <div class="wishlist-item">
+                            <a href="../pages/product_details.php?id=<?php echo $item['id']; ?>" style="text-decoration:none; color:inherit;">
+                                <img src="../assets/images/<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" />
+                                <p class="product-name"><?php echo htmlspecialchars($item['name']); ?></p>
+                                <p class="product-price">$<?php echo number_format($item['price'], 2); ?></p>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <p>You have no items in your wishlist.</p>
+        <?php endif; ?>
     </div>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

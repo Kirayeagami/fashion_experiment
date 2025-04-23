@@ -51,6 +51,8 @@ $products = $conn->query("SELECT * FROM products ORDER BY created_at DESC")->fet
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+    
+<div class="main-content" style="padding-top: 100px;">
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div class="manage-products-container">

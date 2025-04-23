@@ -35,7 +35,7 @@ $orders = $orders_stmt->get_result();
 
 </head>
 <body>
-
+<div class="main-content" style="padding-top: 50px;">
 <?php include __DIR__ . '/../includes/header.php'; ?>
 
 <main class="orders-container">

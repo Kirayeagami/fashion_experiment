@@ -9,6 +9,8 @@ if (!isset($_SESSION['csrf_token'])) {
         <div class="footer-brand">
             <h3 class="footer-logo">K I R A</h3>
             <p class="footer-tagline">Your Fashion Destination</p>
+            <p class="footer-description">Explore the latest trends and styles with us.</p>
+            <p class="footer-address">123 Fashion St, Style City, SC 12345</p>
         </div>
 
         <div class="footer-links">
@@ -29,13 +31,13 @@ if (!isset($_SESSION['csrf_token'])) {
                 <a href="https://www.facebook.com/share/152fSHc5z7/" class="social-icon" title="Facebook">F
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-icon" title="Twitter">X
+                <a href="https://www.twitter.com/@KiraYeagami" class="social-icon" title="Twitter">T
                     <i class="fab fa-twitter"></i>
                 </a>
                 <a href="https://www.instagram.com/kira_yeagami?igsh=OGQ5ZDc2ODk2ZA==" class="social-icon" title="Instagram">I
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="social-icon" title="LinkedIn">L
+                <a href="https://linkedin.com/in/rajkumar-das-7391a7313" class="social-icon" title="LinkedIn">L
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>

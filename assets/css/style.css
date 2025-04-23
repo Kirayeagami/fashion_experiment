@@ -91,3 +91,49 @@ select {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode a {
+    color: #90caf9;
+}
+
+.dark-mode a:hover {
+    color: #64b5f6;
+}
+
+.dark-mode button {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: #1565c0;
+}
+
+/* Bright Mode Styles */
+.bright-mode {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.bright-mode a {
+    color: #1a73e8;
+}
+
+.bright-mode a:hover {
+    color: #1557b7;
+}
+
+.bright-mode button {
+    background-color: #3498db;
+    color: white;
+}
+
+.bright-mode button:hover {
+    background-color: #2980b9;
+}

@@ -184,17 +184,107 @@
     font-weight: 500;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .dashboard-header h1 {
-        font-size: 2rem;
-    }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .seller-dashboard-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .dashboard-header h1,
+body.dark-mode .dashboard-header p,
+body.dark-mode .card-title,
+body.dark-mode .card-content,
+body.dark-mode .orders-table th,
+body.dark-mode .orders-table td {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dashboard-card,
+body.dark-mode .product-card {
+    background-color: #272727;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dashboard-card:hover,
+body.dark-mode .product-card:hover {
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .card-icon {
+    background: #2980b9;
+    color: white;
+}
+
+body.dark-mode .action-btn {
+    background-color: #2980b9;
+    color: white;
+}
+
+body.dark-mode .action-btn:hover {
+    background-color: #1c5980;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.4);
+}
+
+body.dark-mode .delete-btn {
+    background-color: #c0392b;
+}
+
+body.dark-mode .delete-btn:hover {
+    background-color: #e74c3c;
+}
+
+/* Bright Mode Styles */
+body.bright-mode {
+    background-color: #fff !important;
+    color: #2c3e50 !important;
+}
+
+body.bright-mode .seller-dashboard-container {
+    background-color: #fff;
+}
+
+body.bright-mode .dashboard-header h1,
+body.bright-mode .dashboard-header p,
+body.bright-mode .card-title,
+body.bright-mode .card-content,
+body.bright-mode .orders-table th,
+body.bright-mode .orders-table td {
+    color: #2c3e50;
+}
+
+body.bright-mode .dashboard-card,
+body.bright-mode .product-card {
+    background-color: #fff;
+}
+
+body.bright-mode .dashboard-card:hover,
+body.bright-mode .product-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.bright-mode .card-icon {
+    background: #3498db;
+    color: white;
+}
+
+body.bright-mode .action-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+body.bright-mode .action-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+body.bright-mode .delete-btn {
+    background-color: #e74c3c;
+}
+
+body.bright-mode .delete-btn:hover {
+    background-color: #c0392b;
 }

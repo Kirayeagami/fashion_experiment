@@ -53,7 +53,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 极光色) 10%, transparent 10.01%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 10%, transparent 10.01%);
     background-size: 20px 20px;
     transform: rotate(45deg);
     opacity: 0.3;
@@ -199,4 +199,125 @@
         min-height: 100px;
         padding: 1.5rem;
     }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .admin-container {
+    background-color: #2c2c2c;
+    box-shadow: none;
+}
+
+body.dark-mode .admin-container h1,
+body.dark-mode .admin-container h2,
+body.dark-mode .admin-container h3,
+body.dark-mode .admin-container p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .stat-card {
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .stat-card:hover {
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .admin-link {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .admin-link.products {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+}
+
+body.dark-mode .admin-link.orders {
+    background: linear-gradient(135deg, #047857, #10b981);
+}
+
+body.dark-mode .admin-link.users {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+}
+
+body.dark-mode .admin-link.settings {
+    background: linear-gradient(135deg, #7e22ce, #a855f7);
+}
+
+body.dark-mode .admin-link.logs {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+body.dark-mode .message.success {
+    background-color: #14532d;
+    color: #bbf7d0;
+}
+
+body.dark-mode .message.error {
+    background-color: #7f1d1d;
+    color: #fecaca;
+}
+
+/* Bright Mode Styles */
+body.bright-mode {
+    background-color: #ea6b6b !important;
+    color: #1e293b !important;
+}
+
+body.bright-mode .admin-container {
+    background-color: #ea6b6b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.bright-mode .admin-container h1 {
+    color: #2563eb;
+}
+
+body.bright-mode .stat-card {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.bright-mode .stat-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.bright-mode .admin-link {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.bright-mode .admin-link.products {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+body.bright-mode .admin-link.orders {
+    background: linear-gradient(135deg, #10b981, #047857);
+}
+
+body.bright-mode .admin-link.users {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+body.bright-mode .admin-link.settings {
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+}
+
+body.bright-mode .admin-link.logs {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+body.bright-mode .message.success {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+body.bright-mode .message.error {
+    background-color: #fee2e2;
+    color: #dc2626;
 }

@@ -9,10 +9,10 @@ include __DIR__ . '/../includes/db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - K I R A Fashion</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg" type="image/png" />
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/about.css">
-    <link rel="shortcut icon" href="https://i.ibb.co/7NV0mNm9/IMG-20230803-013043224-transformed-x4-x16.jpg" type="image/png" />
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -60,6 +60,7 @@ include __DIR__ . '/../includes/db.php';
                     <p>Co Creater</p>
                 </div>
                 <div class="team-member">
+                <a href="http://localhost/e-comm/index.php">    
                     <img src="../assets/images/brothers.jpg" alt="Brothers">
 
                     <h4>My Team</h4>

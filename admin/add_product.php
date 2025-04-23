@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+<div class="main-content" style="padding-top: 50px;">
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div class="product-form-container animate__animated animate__fadeIn">

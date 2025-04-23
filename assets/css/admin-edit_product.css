@@ -1,0 +1,253 @@
+/* Modern and cool styles with animations for edit product form */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+    animation: fadeIn 1s ease forwards;
+}
+
+.auth-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 500px;
+    animation: slideUp 0.8s ease forwards;
+}
+
+.auth-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.auth-header p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+input[type="file"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px 2px #667eea;
+}
+
+label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #ccc;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 15px;
+    font-size: 0.8rem;
+    color: #667eea;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px 0;
+    background: #667eea;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: #5a67d8;
+    box-shadow: 0 6px 20px rgba(90, 103, 216, 0.8);
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.message.success {
+    background: #38a169;
+    color: #e6fffa;
+}
+
+.message.error {
+    background: #e53e3e;
+    color: #fff5f5;
+}
+
+.image-preview {
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.7);
+    animation: pulse 2s infinite;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.image-preview img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(30px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes pulse {
+    0%, 100% {box-shadow: 0 0 15px rgba(102, 126, 234, 0.7);}
+    50% {box-shadow: 0 0 25px rgba(102, 126, 234, 1);}
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #1e40af, #7c3aed);
+    color: #e0e0e0;
+}
+
+body.dark-mode .auth-box {
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: none;
+}
+
+body.dark-mode .auth-header h1,
+body.dark-mode .auth-header p {
+    color: #bbb;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode textarea,
+body.dark-mode input[type="file"] {
+    background-color: #272727;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode input[type="file"]:focus {
+    background-color: #333;
+    border-color: #64b5f6;
+    box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5);
+    color: #e0e0e0;
+}
+
+body.dark-mode .auth-btn {
+    background: #64b5f6;
+    color: #121212;
+}
+
+body.dark-mode .auth-btn:hover {
+    background: #90caf9;
+    box-shadow: 0 4px 15px rgba(100, 181, 246, 0.6);
+}
+
+/* Bright Mode Styles */
+body.bright-mode {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #1e293b;
+}
+
+body.bright-mode .auth-box {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.bright-mode .auth-header h1,
+body.bright-mode .auth-header p {
+    color: #1e293b;
+}
+
+body.bright-mode .form-group input,
+body.bright-mode textarea,
+body.bright-mode input[type="file"] {
+    background-color: white;
+    border-color: #e2e8f0;
+    color: #1e293b;
+}
+
+body.bright-mode .form-group input:focus,
+body.bright-mode textarea:focus,
+body.bright-mode input[type="file"]:focus {
+    background-color: white;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+    color: #1e293b;
+}
+
+body.bright-mode .auth-btn {
+    background: #667eea;
+    color: white;
+}
+
+body.bright-mode .auth-btn:hover {
+    background: #5a67d8;
+}

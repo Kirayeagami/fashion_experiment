@@ -18,13 +18,13 @@ $messages = $conn->query("SELECT * FROM contact_inquiries ORDER BY created_at DE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Messages</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <!-- <link rel="stylesheet" href="../assets/css/admin.css"> -->
     <link rel="stylesheet" href="../assets/css/view_messages.css">
 
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
-
+    <div class="main-content" style="padding-top: 60px;"></div>
     <div class="admin-container messages-container">
 
         <h1>User Messages</h1>

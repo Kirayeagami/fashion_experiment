@@ -158,3 +158,75 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .about-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .about-header h1,
+body.dark-mode .about-header p,
+body.dark-mode .about-card h3,
+body.dark-mode .about-card p,
+body.dark-mode .team-member h4,
+body.dark-mode .team-member p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .about-card,
+body.dark-mode .team-member {
+    background-color: #272727;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .about-card:hover,
+body.dark-mode .team-member:hover {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .about-card-icon,
+body.dark-mode .team-member img {
+    border-color: #64b5f6;
+    color: #64b5f6;
+}
+
+/* Bright Mode Styles */
+body.bright-mode {
+    background-color: #fff !important;
+    color: #2c3e50 !important;
+}
+
+body.bright-mode .about-container {
+    background-color: #fff;
+}
+
+body.bright-mode .about-header h1,
+body.bright-mode .about-header p,
+body.bright-mode .about-card h3,
+body.bright-mode .about-card p,
+body.bright-mode .team-member h4,
+body.bright-mode .team-member p {
+    color: #2c3e50;
+}
+
+body.bright-mode .about-card,
+body.bright-mode .team-member {
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.bright-mode .about-card:hover,
+body.bright-mode .team-member:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+body.bright-mode .about-card-icon,
+body.bright-mode .team-member img {
+    border-color: #3498db;
+    color: #3498db;
+}

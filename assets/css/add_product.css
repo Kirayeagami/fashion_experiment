@@ -51,7 +51,7 @@
     width: 100%;
     padding: 14px;
     border: 2px solid #ecf0f1;
-    border-radius: 极光色8px;
+    border-radius: 8px;
     font-size: 1em;
     transition: all 0.3s ease;
     background: #f9f9f9;
@@ -149,12 +149,6 @@
     animation: none;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .add-product-container {
@@ -170,4 +164,126 @@
     .file-label {
         width: 100%;
     }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .add-product-container {
+    background-color: #1e1e1e;
+    box-shadow: none;
+}
+
+body.dark-mode .form-header h1,
+body.dark-mode .form-header p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+    background-color: #272727;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .form-group select:focus {
+    background-color: #333;
+    border-color: #64b5f6;
+    box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.5);
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group label {
+    background-color: #272727;
+    color: #bbb;
+}
+
+body.dark-mode .file-label {
+    background: #64b5f6;
+    color: #121212;
+}
+
+body.dark-mode .file-label:hover {
+    background: #90caf9;
+}
+
+body.dark-mode .image-preview {
+    border-color: #555;
+}
+
+body.dark-mode .submit-btn {
+    background: linear-gradient(45deg, #64b5f6, #2980b9);
+    color: #121212;
+}
+
+body.dark-mode .submit-btn:hover {
+    background: linear-gradient(45deg, #90caf9, #64b5f6);
+    box-shadow: 0 5px 20px rgba(100, 181, 246, 0.6);
+}
+
+/* Bright Mode Styles */
+body.bright-mode {
+    background-color: #fff !important;
+    color: #2c3e50 !important;
+}
+
+body.bright-mode .add-product-container {
+    background-color: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.bright-mode .form-header h1,
+body.bright-mode .form-header p {
+    color: #2c3e50;
+}
+
+body.bright-mode .form-group input,
+body.bright-mode .form-group textarea,
+body.bright-mode .form-group select {
+    background-color: #f9f9f9;
+    border-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+body.bright-mode .form-group input:focus,
+body.bright-mode .form-group textarea:focus,
+body.bright-mode .form-group select:focus {
+    background-color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    color: #2c3e50;
+}
+
+body.bright-mode .form-group label {
+    background-color: #f9f9f9;
+    color: #7f8c8d;
+}
+
+body.bright-mode .file-label {
+    background: #3498db;
+    color: white;
+}
+
+body.bright-mode .file-label:hover {
+    background: #2980b9;
+}
+
+body.bright-mode .image-preview {
+    border-color: #ecf0f1;
+}
+
+body.bright-mode .submit-btn {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+}
+
+body.bright-mode .submit-btn:hover {
+    background: linear-gradient(45deg, #2980b9, #3498db);
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
 }

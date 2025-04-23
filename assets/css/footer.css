@@ -45,7 +45,17 @@
 }
 
 .footer-tagline {
-    color: #ec5f5f;
+    color: #b87272;
+    font-size: 14px;
+}
+
+.footer-description {
+    color: #944545;
+    font-size: 14px;
+}
+
+.footer-address {
+    color: #864141;
     font-size: 14px;
 }
 
@@ -93,10 +103,6 @@
     transform: scale(1.2);
 }
 
-
-
-
-
 .newsletter-form {
     display: flex;
     margin-top: 10px;
@@ -135,6 +141,11 @@
     text-align: center;
     color: #4593c6;
     animation: fadeIn 1.5s ease;
+}
+
+.privacy-notice {
+    color: #944545;
+    font-size: 14px;
 }
 
 /* Animations */

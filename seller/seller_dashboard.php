@@ -40,7 +40,7 @@ $recent_orders = $orders_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
-
+    <div class="main-content" style="padding-top: 80px;">
     <div class="seller-dashboard-container">
         <div class="dashboard-header">
             <h1>Seller Dashboard</h1>

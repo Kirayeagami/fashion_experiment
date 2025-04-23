@@ -1,14 +1,18 @@
 /* Header with Auto-Hide and Animations */
 header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     transform: translateY(0);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     opacity: 1;
+    padding: 8px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Header Styles with Auto-Hide */
@@ -20,6 +24,7 @@ header {
     width: 100%;
     z-index: 1000;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 8px 20px;
 }
 
 .header-hidden {
@@ -42,7 +47,7 @@ header:hover {
 .navbar {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 8px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,7 +55,7 @@ header:hover {
 }
 
 .logo {
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: 700;
     color: #2c3e50;
     text-decoration: none;
@@ -60,16 +65,16 @@ header:hover {
 
 .logo:hover {
     color: #3498db;
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
     order: 2;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .nav-links {
@@ -78,15 +83,15 @@ header:hover {
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .nav-links a {
     color: #2c3e50;
     text-decoration: none;
-    font-size: 1em;
-    padding: 8px 12px;
+    font-size: 0.95em;
+    padding: 6px 10px;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -109,14 +114,14 @@ header:hover {
 .user-links {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     margin-left: auto;
 }
 
 .user-links a {
     color: #2c3e50;
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 6px 10px;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -139,14 +144,14 @@ header:hover {
 .search-box {
     position: relative;
     flex: 1;
-    max-width: 300px;
+    max-width: 250px;
     min-width: 150px;
     transition: all 0.3s ease;
 }
 
 .search-box input[type="text"] {
     width: 100%;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -164,7 +169,7 @@ header:hover {
     height: 100%;
     background: none;
     border: none;
-    padding: 0 12px;
+    padding: 0 10px;
     cursor: pointer;
     color: #2c3e50;
     transition: color 0.3s ease;
@@ -178,24 +183,24 @@ header:hover {
 /* Responsive Design */
 @media (max-width: 760px) {
     .navbar {
-        padding: 10px 15px;
+        padding: 6px 15px;
     }
 
     .logo {
-        font-size: 1.5em;
+        font-size: 1.2em;
         margin-left: 0;
     }
 
     .nav-container {
         flex-direction: column;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 8px;
+        margin-top: 10px;
     }
 
     .nav-links {
         width: 100%;
         justify-content: space-between;
-        gap: 10px;
+        gap: 8px;
     }
 
     .user-links {

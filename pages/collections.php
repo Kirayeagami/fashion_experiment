@@ -66,6 +66,7 @@ $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+    <div class="main-content" style="padding-top: 60px;">
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <main class="collections-container">

@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../assets/css/header.css">
 </head>
 <body>
+<div class="main-content" style="padding-top: 50px;">
     <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <div class="seller-add-product-container">

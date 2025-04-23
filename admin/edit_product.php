@@ -72,9 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/admin-auth.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
+    <!-- <link rel="stylesheet" href="../assets/css/admin.css"> -->
+    <link rel="stylesheet" href="../assets/css/admin-edit_product.css">
+    <!-- <link rel="stylesheet" href="../assets/css/header.css"> -->
+    <style>
+
+    </style>
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -82,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="auth-container">
         <div class="auth-box">
             <div class="auth-header">
-                <h1>Edit Product</h1>
+                <h1>Admin Edit Product</h1>
                 <p>Update the product details below</p>
             </div>
             
