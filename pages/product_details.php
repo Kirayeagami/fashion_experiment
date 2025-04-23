@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
-
+    <div class="main-content" style="padding-top: 100px;"></div>
     <!-- Product Details -->
     <main>
         <section class="product-details-container">

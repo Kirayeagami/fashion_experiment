@@ -10,22 +10,26 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch product details
+// Fetch product details securely using prepared statements
 $product_id = $_GET['id']; // Get product ID from URL
-$product_sql = "SELECT * FROM products WHERE id = '$product_id' LIMIT 1";
 
-$product_result = $conn->query($product_sql);
+// Prepare statement for product details
+$stmt = $conn->prepare("SELECT * FROM products WHERE id = ? LIMIT 1");
+$stmt->bind_param("i", $product_id);
+$stmt->execute();
+$product_result = $stmt->get_result();
 $product = $product_result->fetch_assoc();
 
 // SEO Improvements (Meta Tags)
-echo "<title>" . $product['name'] . " | K I R A</title>";
-echo "<meta name='description' content='" . substr($product['description'], 0, 150) . "...'>";
-echo "<meta name='keywords' content='" . $product['name'] . ", buy " . $product['name'] . ", best " . $product['name'] . "'>";
+echo "<title>" . htmlspecialchars($product['name']) . " | K I R A</title>";
+echo "<meta name='description' content='" . htmlspecialchars(substr($product['description'], 0, 150)) . "...'>";
+echo "<meta name='keywords' content='" . htmlspecialchars($product['name']) . ", buy " . htmlspecialchars($product['name']) . ", best " . htmlspecialchars($product['name']) . "'>";
 
-// Fetch recommended products (same category or best sellers)
-$recommend_sql = "SELECT * FROM products WHERE id != '$product_id' AND available = 1 ORDER BY RAND() LIMIT 4";
-
-$recommend_result = $conn->query($recommend_sql);
+// Fetch recommended products securely using prepared statements
+$recommend_stmt = $conn->prepare("SELECT * FROM products WHERE id != ? AND available = 1 ORDER BY RAND() LIMIT 4");
+$recommend_stmt->bind_param("i", $product_id);
+$recommend_stmt->execute();
+$recommend_result = $recommend_stmt->get_result();
 ?>
 
 <!DOCTYPE html>

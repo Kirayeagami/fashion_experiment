@@ -1,3 +1,9 @@
+/**
+ * Dark mode toggle script
+ * Applies saved mode from localStorage on page load
+ * Toggles between dark and bright modes on button click
+ * Saves the current mode in localStorage
+ */
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('dark-mode-toggle-btn');
     const body = document.body;
@@ -14,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Applied default mode: bright-mode');
     }
 
+    // Toggle mode on button click
     toggleButton.addEventListener('click', function () {
         if (body.classList.contains('dark-mode')) {
             body.classList.remove('dark-mode');
