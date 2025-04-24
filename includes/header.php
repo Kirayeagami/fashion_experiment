@@ -16,7 +16,7 @@
                 </form>
             </li>
             <li class="user-links">
-                <a href="../user/cart.php">🛒 Cart</a>
+                <a href="../user/cart.php">🛒Cart</a>
                 <a href="../user/profile.php">Profile</a>
                 <div class="dark-mode-toggle"></div>
                 <button id="dark-mode-toggle-btn" class="dark-mode-toggle">🌙</button>

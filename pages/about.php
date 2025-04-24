@@ -57,7 +57,9 @@ include __DIR__ . '/../includes/db.php';
                 <a href="sayan.html">
                     <img src="../assets/images/sayan.jpg" alt="Sayan Basani">
                     <h4>Sayan Basani</h4>
-                    <p>Co Creater</p></a>
+                    <p>Co Creater</p>
+                    <p>Marketing Manager</p>
+                </a>
                 </div>
                 <div class="team-member">
                 <a href="">
@@ -78,10 +80,16 @@ include __DIR__ . '/../includes/db.php';
                     <p>Team Member</p></a>
                 </div>
                 <div class="team-member">
+                <a href="">
+                    <img src="../assets/images/manish.jpg" alt="Manish Sahu">
+                    <h4>Manish Sahu</h4>
+                    <p>Team Member</p></a>
+                </div>
+                <div class="team-member">
                 <a href="http://localhost/e-comm/index.php">    
                     <img src="../assets/images/brothers.jpg" alt="Brothers">
                     <h4>My Team</h4>
-                    <p>Marketing Managers</p>
+                    <p></p>
                     <p>Supporter</p>
                 </a>
                 </div>
